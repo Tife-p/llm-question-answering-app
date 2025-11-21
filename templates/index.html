@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LLM Q&A Web GUI</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>LLM Q&amp;A — Web GUI</h1>
+      <form method="post" id="qa-form">
+        <label for="question">Enter your question</label>
+        <textarea id="question" name="question" rows="3" placeholder="Ask anything...">{{ question or '' }}</textarea>
+        <button type="submit">Ask LLM</button>
+      </form>
+
+      {% if question is not none %}
+      <section class="results">
+        <h2>Results</h2>
+        <p><strong>Original question:</strong> {{ question }}</p>
+        <p><strong>Processed question:</strong> {{ processed }}</p>
+        <p><strong>Answer (source: {{ source }}):</strong></p>
+        <div class="answer">{{ answer }}</div>
+      </section>
+      {% endif %}
+
+      <footer>
+        <small>Set environment variable <code>OPENAI_API_KEY</code> to get real LLM answers. Otherwise the app uses a safe fallback.</small>
+      </footer>
+    </div>
+  </body>
+</html>

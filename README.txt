@@ -1,0 +1,1 @@
+Instructions: Replace placeholders in LLM_QA_hosted_webGUI_link.txt. Set OPENAI_API_KEY to enable real LLM responses. Run 'python app.py' to start the Flask app locally.
